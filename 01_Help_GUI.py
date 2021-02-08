@@ -1,5 +1,5 @@
 from tkinter import *
-from functools import partial # To prevent unwanted windows
+from functools import partial  # To prevent unwanted windows
 
 import random
 
@@ -13,6 +13,13 @@ class Converter:
         # Converter Main Screen GUI..
         self.converter_frame = Frame(width=600, height=600, bg=background_color)
         self.converter_frame.grid()
+
+        # Temperature Conversion Heading(row 0)
+        self.temp_converter_label = Label(text="Temperature Converter",
+                                          font=("Arial", "16", "bold"),
+                                          padx=10, pady=10)
+
+
 
 
 
