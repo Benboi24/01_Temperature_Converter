@@ -42,6 +42,26 @@ class Help:
         # disable help button
         partner.help_button.config(state=DISABLED)
 
+        # sets up child window (ie: help box)
+        self.help_box = Toplevel()
+
+        # set up GUI Frame
+        self.help_frame = Frame(self.help_box, bg=background)
+        self.help_frame.grid()
+
+        # set up Help heading (row 0)
+        self.how_heading = Label(self.help_frame, text="Help / Instructions",
+                                 font="arial 10 bold", bg=background)
+        self.how_heading.grid(row=0)
+
+        # Help text (label, row 1)
+        self.help_text = Label(self.help_frame, text="",
+                               justify=LEFT, width=40, bg=background, wrap=250)
+        self.help_text.grid(column=0, row=1)
+
+        # Dismiss button (row 2)
+
+
 # main routine
 if __name__ == "__main__":
     root = Tk()
