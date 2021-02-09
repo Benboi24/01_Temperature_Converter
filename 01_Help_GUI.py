@@ -19,13 +19,11 @@ class Converter:
                                           font=("Arial", "16", "bold"),
                                           padx=10, pady=10)
 
-
-
-
+        self.temp_converter_label.grid(row=0)
 
 # main routine
 if __name__ == "__main__":
     root = Tk()
-    root.title("Temperature Convertor")
+    root.title("Temperature Converter")
     something = Converter(root)
     root.mainloop()
