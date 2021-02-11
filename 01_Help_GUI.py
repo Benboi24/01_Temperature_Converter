@@ -46,6 +46,9 @@ class Help:
             # sets up child window (ie: help box)
             self.help_box = Toplevel()
 
+            # If users press cross at top, closes help and 'releases' help button
+            self.help_box.protocol('WM_Delete_WINDOW', partial(self.close_help, partner))
+
             # set up GUI Frame
             self.help_frame = Frame(self.help_box, width=300, bg=background)
             self.help_frame.grid()
@@ -69,7 +72,7 @@ class Help:
     def close_help(self, partner):
         # Put help button back to normal..
         partner.help_button.config(state=NORMAL)
-        
+        self.help_box.destroy()
 
 # main routine
 if __name__ == "__main__":
