@@ -37,7 +37,14 @@ class Converter:
                                       font="Arial 14 bold")
         self.to_convert_entry.grid(row=2)
 
-        # Conversion button frame (row 3)
+        # Conversion button frame (row 3) , orchid3 | khakil
+        self.conversion_buttons_frame = Frame(self.converter_frame)
+        self.conversion_buttons_frame.grid(row=3)
+
+        self.to_c_button = Button(self.conversion_buttons_frame,
+                                  text="To Centigrade", font="April 10 bold",
+                                  bg="Khakil", padx=10, pady=10)
+        self.to_c_button.grid(row=0, column=0)
 
         # Answer label (row 4)
 
