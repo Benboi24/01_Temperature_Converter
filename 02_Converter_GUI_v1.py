@@ -46,6 +46,11 @@ class Converter:
                                   bg="Khakil", padx=10, pady=10)
         self.to_c_button.grid(row=0, column=0)
 
+        self.to_f_button = Button(self.conversion_buttons_frame,
+                                  text="To Fahrenheit", font="Arial 10 bold",
+                                  bg="Orchid1", padx=10, pady=10)
+        self.to_f_button.grid(row=0, column=1)
+
         # Answer label (row 4)
 
         # History / Help button frame (row 5)
