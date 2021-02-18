@@ -96,9 +96,5 @@ class Converter:
             self.converted_label.configure(text="Enter a number!!", fg="red")
             self.to_convert_entry.configure(bg=error)
 
-# main routine
-if __name__ == "__main__":
-    root = Tk()
-    root.title("Temperature Converter")
-    something = Converter()
-    root.mainloop()
+
+
