@@ -43,12 +43,13 @@ class Converter:
 
         self.to_c_button = Button(self.conversion_buttons_frame,
                                   text="To Centigrade", font="April 10 bold",
-                                  bg="Khakil", padx=10, pady=10)
+                                  bg="Khaki1", padx=10, pady=10)
         self.to_c_button.grid(row=0, column=0)
 
         self.to_f_button = Button(self.conversion_buttons_frame,
                                   text="To Fahrenheit", font="Arial 10 bold",
-                                  bg="Orchid1", padx=10, pady=10)
+                                  bg="Orchid1", padx=10, pady=10,
+                                  commmand=lambda: self.temp_convert(-273))
         self.to_f_button.grid(row=0, column=1)
 
         # Answer label (row 4)
@@ -58,7 +59,7 @@ class Converter:
         self.converted_label.grid(row=4)
 
         # History / Help button frame (row 5)
-        self.hist_frame = Frame(self.converter_frame)
+        self.hist_help_frame = Frame(self.converter_frame)
         self.hist_help_frame.grid(row=5, pady=10)
 
         self.calc_hist_button = Button(self.hist_help_frame, font="Arial 12 bold",
@@ -75,7 +76,7 @@ class Converter:
         error = "#ffafaf"   # Pale pink background for when entry box has errors
 
         # Retrieve amount entered into Entry field
-        to_convert = self.to_convert_enntry.get()
+        to_convert = self.to_convert_entry.get()
 
         try:
             to_convert = float(to_convert)
@@ -96,5 +97,11 @@ class Converter:
             self.converted_label.configure(text="Enter a number!!", fg="red")
             self.to_convert_entry.configure(bg=error)
 
+        print("you pushed a button")
 
-
+# main routine
+if __name__ == "__main__":
+    root = Tk()
+    root.title("Temperature Converter")
+    something = Converter()
+    root.mainloop()
