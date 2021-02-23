@@ -10,7 +10,7 @@ class Converter:
         background_color = "light blue"
 
         # Converter Frame
-        self.converter_frame = Frame(width=300, bg=background_color,
+        self.converter_frame = Frame(bg=background_color,
                                      pady=10)
         self.converter_frame.grid()
 
@@ -27,7 +27,7 @@ class Converter:
                                                     text="Type in the amount to be"
                                                     "converted and then push"
                                                     "one of the buttons below...",
-                                                    font="Arial 10 italic", wrap=250,
+                                                    font="Arial 10 italic", wrap=290,
                                                     justify=LEFT, bg=background_color,
                                                     padx=10, pady=10)
         self.temperature_instructions_label.grid(row=1)
@@ -71,8 +71,8 @@ class Converter:
                                   text="Help", width=5)
         self.help_button.grid(row=0, column=1)
 
-    def temp_convert(self, to):
-        print(to)
+    def temp_convert(self, low):
+        print(low)
 
         error = "#ffafaf"   # Pale pink background for when entry box has errors
 
@@ -81,16 +81,21 @@ class Converter:
 
         try:
             to_convert = float(to_convert)
-            print("yay")
+            has_errors = "no"
 
-        except ValueError:
-            print("oops")
+            # Check and convert to Farhrenheit
+            if low == -273 and to_convert >= low:
+                fahrenheit = (to_convert * 9/5) + 32
+                to_convert = self.round_it(to_convert)
+                fahrenheit = self.round_it(fahrenheit)
+                answer = "{} degrees C is {} degrees F".format(to_convert, fahrenheit)
 
-            # Check amount is a valid number
-
-            # Convert to F
-
-            # Convert to C
+            # Convert and convert to Centigrade
+            elif low == -459 and to_convert >= low:
+                celsius = (to_convert - 32) * 5/9
+                to_convert = self.round_it(celsius)
+                
+                answer = "{} degrees C is {} degrees F".format(to_convert, celsius)
 
             # Round!!
 
