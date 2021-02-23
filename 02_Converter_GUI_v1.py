@@ -43,13 +43,14 @@ class Converter:
 
         self.to_c_button = Button(self.conversion_buttons_frame,
                                   text="To Centigrade", font="April 10 bold",
-                                  bg="Khaki1", padx=10, pady=10)
+                                  bg="Khaki1", padx=10, pady=10,
+                                  command=lambda: self.temp_convert(-459))
         self.to_c_button.grid(row=0, column=0)
 
         self.to_f_button = Button(self.conversion_buttons_frame,
                                   text="To Fahrenheit", font="Arial 10 bold",
                                   bg="Orchid1", padx=10, pady=10,
-                                  commmand=lambda: self.temp_convert(-273))
+                                  command=lambda: self.temp_convert(-273))
         self.to_f_button.grid(row=0, column=1)
 
         # Answer label (row 4)
@@ -80,6 +81,10 @@ class Converter:
 
         try:
             to_convert = float(to_convert)
+            print("yay")
+
+        except ValueError:
+            print("oops")
 
             # Check amount is a valid number
 
